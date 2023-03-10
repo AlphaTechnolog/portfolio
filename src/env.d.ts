@@ -11,6 +11,7 @@ export type Links = Link[];
 export type Icon = {
   name: string;
   pack: string;
+  color?: string;
 }
 
 export type Skill = {

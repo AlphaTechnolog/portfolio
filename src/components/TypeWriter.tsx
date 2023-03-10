@@ -11,10 +11,11 @@ export type Delays = {
 export type Props = {
   texts?: string[]
   delays?: Delays
+  singleShot?: boolean
   children?: ({ text }: { text: string }) => JSX.Element
 }
 
-export default function TypeWriter({ texts = [], children = () => <></>, delays }: Props) {
+export default function TypeWriter({ texts = [], singleShot = false, children = () => <></>, delays }: Props) {
   const actualTextIndex = useSignal(0)
   const actualText = useSignal<string | undefined>(undefined)
   const renderedText = useSignal('')
@@ -61,9 +62,12 @@ export default function TypeWriter({ texts = [], children = () => <></>, delays 
       }
       if (i >= actualText.value.length) {
         clearInterval(interval)
-        setTimeout(() => {
-          reverseAnimation()
-        }, WAITING_DELAY)
+
+        if (!singleShot) {
+          setTimeout(() => {
+            reverseAnimation()
+          }, WAITING_DELAY)
+        }
 
         return
       }

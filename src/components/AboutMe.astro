@@ -6,22 +6,22 @@ import type { Skill, Skills } from '../env'
 const skills: Skills = [
   {
     name: 'Web Development',
-    description: 'I can make beautiful and useful web applications or web pages',
+    description: 'I can make beautiful and useful web applications or web pages.',
     icon: { pack: 'ant-design', name: 'chrome-filled' },
   },
   {
     name: 'Mobile Development',
-    description: 'I can work on beautiful mobile applications',
+    description: 'I can work on beautiful mobile applications.',
     icon: { pack: 'mdi', name: 'android-studio' },
   },
   {
     name: 'UI Designing',
-    description: 'I am able to design beautiful and consistent UI designs',
+    description: 'I am able to design beautiful and consistent UI designs.',
     icon: { pack: 'ph', name: 'figma-logo' },
   },
   {
     name: 'Web Scrapping',
-    description: 'I can recollect data from web apps by using web scrapping and python',
+    description: 'I can recollect data from web apps by using web scrapping and python.',
     icon: { pack: 'mdi', name: 'language-python' },
   }
 ]
@@ -70,6 +70,7 @@ const skills: Skills = [
               text={skill.description}
               cursorColor={index === 0 ? 'white' : 'primary'}
               typeWriterProps={{
+                singleShot: true,
                 delays: {
                   waiting: 2500
                 }

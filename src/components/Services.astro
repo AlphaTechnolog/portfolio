@@ -5,34 +5,34 @@ import SimpleTypeWriter from './SimpleTypeWriter';
 
 const services: Services = [
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'simple-icons', name: 'nixos' },
     name: 'Linux Ricing',
     description: 'I can make you a beautiful desktop environment with a lot of customizations adapted to your needs.',
   },
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'ic', name: 'sharp-code' },
     name: 'Web development',
     description: 'I create beautiful interfaces with simple html, css and javascript or another framework depending on your needs.',
   },
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'ph', name: 'android-logo-fill' },
     name: 'Mobile development',
-    description: 'I can make you useful and fully featured mobile applications by using several frameworks like React Native or Flutter',
+    description: 'I can make you useful and fully featured mobile applications by using several frameworks like React Native or Flutter.',
   },
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'mdi', name: 'git' },
     name: 'Version Control',
-    description: 'I can use version control systems well, specially git which is my go-to tool',
+    description: 'I can use version control systems well, specially git which is my go-to tool.',
   },
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'akar-icons', name: 'node-fill' },
     name: 'Npm and Node.js',
-    description: 'I have care understanding of NPM, I can also develop general purpose applications with NodeJS',
+    description: 'I have care understanding of NPM, I can also develop general purpose applications with NodeJS.',
   },
   {
-    icon: { pack: 'mdi', name: 'account' },
+    icon: { pack: 'mdi', name: 'language-python' },
     name: 'Web Scrapping',
-    description: 'I can collect data from the internet then manipulate and analyze as needed by using python',
+    description: 'I can collect data from the internet then manipulate and analyze as needed by using python.',
   }
 ]
 ---
@@ -41,7 +41,7 @@ const services: Services = [
   <div class="text-justify lg:mx-[4rem] xl:mx-[10rem]">
     <h1 class="text-[30pt] text-primary">Services that I offer:</h1>
     <div class="pt-4">
-      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {services.map((service: Service, index: number) => (
           <div class={`h-[30rem] border-solid border-[3px] border-${index % 2 === 0 ? 'white' : 'primary'} rounded-xl p-4 w-full flex justify-center items-center`}>
             <div>
@@ -56,6 +56,7 @@ const services: Services = [
                   client:visible
                   text={service.description}
                   typeWriterProps={{
+                    singleShot: true,
                     delays: {
                       writing: 25,
                       deleting: 15,
