@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon'
+import SimpleTypeWriter from './SimpleTypeWriter';
+import type { Skill, Skills } from '../env'
+
+const skills: Skills = [
+  {
+    name: 'Web Development',
+    description: 'I can make beautiful and useful web applications or web pages',
+    icon: { pack: 'ant-design', name: 'chrome-filled' },
+  },
+  {
+    name: 'Mobile Development',
+    description: 'I can work on beautiful mobile applications',
+    icon: { pack: 'mdi', name: 'android-studio' },
+  },
+  {
+    name: 'UI Designing',
+    description: 'I am able to design beautiful and consistent UI designs',
+    icon: { pack: 'ph', name: 'figma-logo' },
+  },
+  {
+    name: 'Web Scrapping',
+    description: 'I can recollect data from web apps by using web scrapping and python',
+    icon: { pack: 'mdi', name: 'language-python' },
+  }
+]
+---
+
+<div class="mx-10" id="about">
+  <div class="lg:mx-[4rem] xl:mx-[10rem]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20">
+      <div>
+        <h1 class="text-[30pt] text-primary text-center">About me:</h1>
+        <p class="text-lg text-justify">
+          Hello, my name is Gabriel Guerra. I am a Full Stack Web Developer, UI Designer,
+          and Mobile Developer. I have honed my skills in Web Development, and strive to
+          continually learn new things. I have a passion for customizing the appearance of
+          applications that I use daily, and I enjoy using Nix/NixOS as my primary
+          operating system and as the ultimate tool to complete my work. Below are some
+          of my major skills.
+        </p>
+      </div>
+      <div class="md:flex md:items-center md:justify-center md:space-x-3 md:mt-4">
+        <h1 class="text-[80pt] text-primary font-bold text-center md:text-left">5+</h1>
+        <p class="text-lg text-justify">
+          Years of experience in app development and have specialized in building
+          high-quality applications while placing a particular emphasis on
+          delivering a seamless web experience for end users. I am committed
+          to employing user-centered design principles to provide users with
+          the best possible experience when using the applications I develop.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid sm:grid-cols-2 xl:grid-cols-4 lg:mx-[4rem] xl:mx-[10rem] gap-6 mt-10">
+    {skills.map((skill: Skill, index: number) => (
+      <div class={`w-full h-[20rem] flex justify-start items-end bg-${index === 0 ? 'primary' : 'background border-solid border-2 border-primary'} rounded-lg p-6`}>
+        <div>
+          <div class="w-[64px] h-[64px] text-white">
+            <Icon {...skill.icon} />
+          </div>
+          <div class="min-h-[100px] ml-[7px] mt-3">
+            <h1 class="text-[20pt] font-medium text-white">
+              {skill.name}
+            </h1>
+            <SimpleTypeWriter
+              client:visible
+              text={skill.description}
+              cursorColor={index === 0 ? 'white' : 'primary'}
+              typeWriterProps={{
+                delays: {
+                  waiting: 2500
+                }
+              }}
+              extraProps={{
+                class: 'text-lg font-normal'
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

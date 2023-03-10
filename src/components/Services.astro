@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon'
+import type { Services, Service } from '../env'
+import SimpleTypeWriter from './SimpleTypeWriter';
+
+const services: Services = [
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Linux Ricing',
+    description: 'I can make you a beautiful desktop environment with a lot of customizations adapted to your needs.',
+  },
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Web development',
+    description: 'I create beautiful interfaces with simple html, css and javascript or another framework depending on your needs.',
+  },
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Mobile development',
+    description: 'I can make you useful and fully featured mobile applications by using several frameworks like React Native or Flutter',
+  },
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Version Control',
+    description: 'I can use version control systems well, specially git which is my go-to tool',
+  },
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Npm and Node.js',
+    description: 'I have care understanding of NPM, I can also develop general purpose applications with NodeJS',
+  },
+  {
+    icon: { pack: 'mdi', name: 'account' },
+    name: 'Web Scrapping',
+    description: 'I can collect data from the internet then manipulate and analyze as needed by using python',
+  }
+]
+---
+
+<div class="mx-10 pt-10" id="services">
+  <div class="text-justify lg:mx-[4rem] xl:mx-[10rem]">
+    <h1 class="text-[30pt] text-primary">Services that I offer:</h1>
+    <div class="pt-4">
+      <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+        {services.map((service: Service, index: number) => (
+          <div class={`h-[30rem] border-solid border-[3px] border-${index % 2 === 0 ? 'white' : 'primary'} rounded-xl p-4 w-full flex justify-center items-center`}>
+            <div>
+              <div class="flex justify-center">
+                <Icon {...service.icon} class="!w-[128px] !h-[128px]" />
+              </div>
+              <div class="flex justify-center items-center">
+                <h1 class={`text-${index % 2 === 0 ? 'white' : 'primary'} text-[30pt] font-medium`}>{service.name}</h1>
+              </div>
+              <div class="flex justify-center items-center">
+                <SimpleTypeWriter
+                  client:visible
+                  text={service.description}
+                  typeWriterProps={{
+                    delays: {
+                      writing: 25,
+                      deleting: 15,
+                      waiting: 5000
+                    }
+                  }}
+                  extraProps={{
+                    class: 'w-[20rem] h-[10rem] text-white text-lg text-center'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

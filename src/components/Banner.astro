@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon'
+import Description from './Description'
+---
+
+<script is:inline>
+  const redirectTo = (url) => {
+    window.location.href = url
+  }
+</script>
+
+<div class="py-[12rem] px-[15%]">
+  <div class="grid md:grid-cols-1 xl:grid-cols-2 gap-8">
+    <div class="w-full h-full m-auto">
+      <h1 class="font-light text-[30pt]">Hello, I'm</h1>
+      <h1 class="font-bold text-[45pt]">
+        Gabriel Guerra
+      </h1>
+      <div class="w-[80%]">
+        <Description client:load />
+      </div>
+      <div class="pt-[30px] sm:w-[100%] md:w-[80%] lg:w-[65%] xl:w-[45%]">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+          <button
+            class="w-full rounded-lg py-3 px-4 bg-primary transition-all duration-300"
+            onclick="redirectTo('#about')"
+          >
+            <div class="flex justify-center items-center space-x-1">
+              <Icon pack="mdi" name="user" class="!w-[24px] !h-[24px]" />
+              <span>About Me</span>
+            </div>
+          </button>
+          <button
+            class="w-full border-2 border-primary border-solid rounded-lg py-3 px-4 hover:bg-primary transition-all duration-300"
+            onclick="redirectTo('#projects')"
+          >
+            <div class="flex justify-center items-center space-x-1">
+              <Icon pack="ic" name="sharp-code" class="!w-[24px] !h-[24px]" />
+              <span>Projects</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full hidden sm:hidden md:hidden lg:flex xl:flex justify-center items-center">
+      <img
+        src="/face.png"
+        alt="alphatechnolog"
+        width="324"
+        height="324"
+        class="rounded-full"
+      />
+    </div>
+  </div>
+</div>
